@@ -40,5 +40,15 @@ namespace StarChart.Controllers
             }
             return Ok(celObjs);
         }
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var celObjs = _context.CelestialObjects.ToList();
+            foreach (var celObj in celObjs)
+            {
+                celObj.Satellites = _context.CelestialObjects.Find(celObj.Id).Satellites;
+            }
+            return Ok(celObjs);
+        }
     }
 }
