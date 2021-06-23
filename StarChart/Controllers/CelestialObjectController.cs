@@ -36,5 +36,6 @@ namespace StarChart.Controllers
                 return NotFound();
             celObj.Satellites = _context.CelestialObjects.Where(c => c.OrbitedObjectId == celObj.Id).ToList();
             return Ok(celObj);
+        }
     }
 }
