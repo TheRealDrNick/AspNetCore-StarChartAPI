@@ -26,7 +26,7 @@ namespace StarChart.Controllers
                 return NotFound();
             }
             celObj.Satellites.Add(_context.CelestialObjects.FirstOrDefault(c => c.OrbitedObjectId.Value == celObj.Id));
-            return Ok(celObj.Id);
+            return Ok(celObj);
 
         }
     }
