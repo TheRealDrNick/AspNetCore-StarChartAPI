@@ -32,7 +32,7 @@ namespace StarChart.Controllers
         {
             var celObjs = _context.CelestialObjects.Where(c => c.Name == name);
 
-            if (celObjs == null)
+            if (celObjs.Any())
                 return NotFound();
             foreach (var celObj in celObjs)
             {
