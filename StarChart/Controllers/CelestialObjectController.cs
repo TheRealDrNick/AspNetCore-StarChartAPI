@@ -30,7 +30,7 @@ namespace StarChart.Controllers
         [HttpGet("{name}")]
         public IActionResult GetByName(string name)
         {
-            var celObj = _context.CelestialObjects.Find(name);
+            var celObj = _context.CelestialObjects.FirstOrDefault(c => c.Name == name);
 
             if (celObj == null)
                 return NotFound();
