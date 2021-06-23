@@ -54,9 +54,9 @@ namespace StarChart.Controllers
         [HttpPost]
         public IActionResult Create([FromBody]CelestialObject celestialObject)
         {
-            var createdCelestialObject = _context.CelestialObjects.Add(celestialObject);
+            _context.CelestialObjects.Add(celestialObject);
             _context.SaveChanges();
-            return CreatedAtRoute("GetById", new { createdCelestialObject });
+            return CreatedAtRoute("GetById", new { id = celestialObject.Id }, celestialObject);
         }
     }
 }
