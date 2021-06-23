@@ -23,7 +23,7 @@ namespace StarChart.Controllers
             
             if (celObj == null)
                 return NotFound();
-            celObj.Satellites.Add(_context.CelestialObjects.FirstOrDefault(c => c.OrbitedObjectId == celObj.Id));
+            celObj.Satellites = _context.CelestialObjects.Where(c => c.OrbitedObjectId.Value == id).ToList();
             return Ok(celObj);
 
         }
